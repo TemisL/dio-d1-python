@@ -1,3 +1,4 @@
+```
 saque = None
 saldo = 0
 extrato = ""
@@ -63,3 +64,4 @@ break
 
 else:
 print("Digite uma das operações indicadas..")
+```
