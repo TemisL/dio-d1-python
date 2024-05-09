@@ -8,60 +8,60 @@ limite = 500
 
 while True:
 
-print("\n")
+    print("\n")
 
-print("(s) Ver Saldo \n(d) Depositar \n(q) Sacar \n(e) Ver Extrato \n(f) Sair do Programa")
+    print("(s) Ver Saldo \n(d) Depositar \n(q) Sacar \n(e) Ver Extrato \n(f) Sair do Programa")
 
-menu = str(input("Digite uma das opções: ")).lower()
+    menu = str(input("Digite uma das opções: ")).lower()
 
-print("\n")
+    print("\n")
 
-if menu == "s":
-print(f"O seu saldo é: R${saldo:.2f} ")
+    if menu == "s":
+        print(f"O seu saldo é: R${saldo:.2f} ")
 
-elif menu == "d":
-deposito = float(input("Digite o valor que deseja depositar: "))
+    elif menu == "d":
+        deposito = float(input("Digite o valor que deseja depositar: "))
 
-    if deposito > 0:
-      saldo += deposito
-      extrato += f"Depósito de R${deposito:.2f}\n"
+        if deposito > 0:
+          saldo += deposito
+          extrato += f"Depósito de R${deposito:.2f}\n"
+
+        else:
+          print("Deposite um valor maior que zero...")
+
+    elif menu == "q":
+        saque = float(input("Digite o valor que deseja sacar: "))
+
+        excedeu_saldo = saque > saldo
+        excedeu_limite = saque > limite
+        excedeu_limite_saques = numero_saques >= LIMITE_SAQUES
+
+        if excedeu_saldo:
+          print("Você não possui saldo suficiente para sacar..")
+
+        elif excedeu_limite:
+          print("O seu saque ultrapassou o limite, tente novamente.")
+
+        elif excedeu_limite_saques:
+          print("A quantidade de vezes permitida para sacar foi excedida..")
+
+        elif saque > 0:
+          saldo -= saque
+          numero_saques += 1
+          extrato += f"Saque de R${saque:.2f}\n"
+
+        else:
+          print("Operação falhou, tente novamente.")
+
+    elif menu == "e":
+        print("-=-" * 10)
+        print("Histórico de transações na sua conta: \n")
+        print("Não ocorreram movimentações.." if not extrato else extrato)
+        print("-=-" * 10)
+
+    elif menu == "f":
+        break
 
     else:
-      print("Deposite um valor maior que zero...")
-
-elif menu == "q":
-saque = float(input("Digite o valor que deseja sacar: "))
-
-    excedeu_saldo = saque > saldo
-    excedeu_limite = saque > limite
-    excedeu_limite_saques = numero_saques >= LIMITE_SAQUES
-
-    if excedeu_saldo:
-      print("Você não possui saldo suficiente para sacar..")
-
-    elif excedeu_limite:
-      print("O seu saque ultrapassou o limite, tente novamente.")
-
-    elif excedeu_limite_saques:
-      print("A quantidade de vezes permitida para sacar foi excedida..")
-
-    elif saque > 0:
-      saldo -= saque
-      numero_saques += 1
-      extrato += f"Saque de R${saque:.2f}\n"
-
-    else:
-      print("Operação falhou, tente novamente.")
-
-elif menu == "e":
-print("-=-" * 10)
-print("Histórico de transações na sua conta: \n")
-print("Não ocorreram movimentações.." if not extrato else extrato)
-print("-=-" * 10)
-
-elif menu == "f":
-break
-
-else:
-print("Digite uma das operações indicadas..")
+        print("Digite uma das operações indicadas..")
 ```
