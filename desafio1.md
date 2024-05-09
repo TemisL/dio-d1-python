@@ -54,10 +54,10 @@ saque = float(input("Digite o valor que deseja sacar: "))
       print("Operação falhou, tente novamente.")
 
 elif menu == "e":
-print("-=-" _ 10)
+print("-=-" * 10)
 print("Histórico de transações na sua conta: \n")
 print("Não ocorreram movimentações.." if not extrato else extrato)
-print("-=-" _ 10)
+print("-=-" * 10)
 
 elif menu == "f":
 break
