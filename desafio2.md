@@ -1,3 +1,4 @@
+```
 def menu():
   print("\nMENU: \n\n Depósito(d) \n Saque(s) \n Extrato(e) \n Criar Novo Usuário(nu) \n Criar Conta(cc) \n Finalizar o Progama(f)")
   opcao = str(input("\n\nEscolha uma opção: ")).lower()
@@ -111,3 +112,4 @@ def main():
       print("Operação inválida, tente novamente..")
 
 main()
+```
